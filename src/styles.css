@@ -1,0 +1,71 @@
+.visual-filter, .visual-filter .visual-conditions {
+  display: flex;
+  align-items: flex-start;
+}
+
+.visual-filter .add-filter {
+  color: #00447a;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.visual-filter input {
+  padding: 5px;
+}
+
+.visual-filter input[type=submit] {
+  padding: 5px 10px;
+  border-radius: 0.1px;
+}
+
+.visual-filter .chip {
+  border: 1px solid #2196f3;
+  background-color: #ebf6ff;
+  color: #00447a;
+  margin-right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  float: left;
+  border-radius: 4px;
+}
+
+.visual-filter .visual-conditions {
+}
+
+.visual-filter .visual-selector, 
+.visual-filter .visual-value {
+  margin-right: 15px;
+}
+
+.visual-filter .visual-value {
+  height: 20px;
+}
+
+.visual-filter .visual-options {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.visual-filter .visual-options li {
+  padding: 5px 10px;
+}
+
+.visual-filter .visual-options li:hover {
+  background-color: #ebf6ff;
+  color: #00447a;
+}
+
+
+.visual-filter .visual-selector.expanded {
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.visual-filter .visual-selector .visual-label {
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
