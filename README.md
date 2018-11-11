@@ -75,11 +75,11 @@ You can also start the component with pre-populated conditions using the props "
  {id: 'uniqueId2', field: 'age', operator: 'gt', value: '30'}]
 ```
 
-```onChange```event handler fires each time a condition is added, removed or updated. The result is a JSON with  the conditions selected by the user. 
-```json
-[{id:  "cond-1",  "field":  "name",  "operator":  "eq",  "value:  "Elliot"},
-{id:  "cond-2",  "field":  "preference",  "operator":  "eq",  "value":  "javascript"}
-{id:  "cond-3",  "field":  "birth_date",  "operator":  "lt",  "value":  "1984-11-25"}]
+```onChange```event handler fires each time a condition is added, removed or updated. The result is an array of objects with the conditions selected by the user. 
+```javascript
+[{id:  "cond-1",  field:  "name",  operator:  "eq",  value:  "Elliot"},
+{id:  "cond-2",  field:  "preference",  operator:  "eq",  value:  "javascript"}
+{id:  "cond-3",  field:  "birth_date",  operator:  "lt",  value:  "1984-11-25"}]
 ```
 
 
@@ -96,6 +96,8 @@ Each field must have the following items:
 ## Operators
 
 Current operators available are:
+
+Operator|Description
 --- | ---
 eq | equal
 ne | not qual
