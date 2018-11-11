@@ -5,7 +5,7 @@ A simple component to create user friendly visual filters for general purpose.
 ![react visual filter screenshot](https://raw.githubusercontent.com/rfdavid/react-visual-filter/master/assets/screenshot.gif)
 
 
-[See the live demo here ](https://demo)
+[See the live demo here ](https://rfdavid.github.io/react-visual-filter/)
 
 Installation
 ----------
