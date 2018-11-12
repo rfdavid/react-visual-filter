@@ -110,7 +110,10 @@ class VisualFilter extends React.Component {
 
   componentWillMount() {
     document.addEventListener('mousedown', this.handleClick, false);
-    setIdCounter(this.props.conditions.length + 1);
+
+    if (this.props.conditions) {
+      setIdCounter(this.props.conditions.length + 1);
+    }
   }
 
   componentWillUnmount() {
