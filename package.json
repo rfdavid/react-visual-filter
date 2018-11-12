@@ -1,6 +1,6 @@
 {
   "name": "react-visual-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react-visual-filter provides visual filter by adding conditions.",
   "main": "dist/index.js",
   "scripts": {
@@ -18,6 +18,11 @@
   ],
   "author": "rfdavid",
   "license": "MIT",
+  "homepage": "https://github.com/rfdavid/react-visual-filter",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rfdavid/react-visual-filter.git"
+  },
   "peerDependencies": {
     "react": "^16.3.0",
     "react-dom": "^16.3.0"
