@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from './utils/i18n';
+import {i18n} from './utils/i18n';
 
 class FilterChip extends React.Component {
   constructor(props) {

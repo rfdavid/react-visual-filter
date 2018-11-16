@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import VisualFilter from '../../src';
 
 const FIELDS = [
-  {name: 'name', type: 'text', label: 'Name', operators: ['eq', 'ne', 'ct', 'nct', 'sw', 'fw', 'in', 'nn']},
+  {name: 'name', type: 'text', label: 'Nome', operators: ['eq', 'ne', 'ct', 'nct', 'sw', 'fw', 'in', 'nn']},
   {name: 'age', type: 'number', label: 'Age', operators: ['eq', 'ne',  'gt', 'lt']},
   {name: 'birth_date', type: 'date', label: 'Birth date', operators: ['eq', 'ne', 'gt', 'lt', 'in', 'nn']},
   {name: 'email', type: 'text', label: 'Email', operators: ['eq', 'ne', 'ct', 'nct', 'sw', 'fw', 'in', 'nn']},
@@ -33,6 +33,7 @@ class App extends React.Component {
         conditions={SAVED_CONDITIONS} 
         dateFormat="Y-M-D"
         locale="en"
+        handlerTitle="+ add filter"
         onChange={this.handleChange} />
     )
   }

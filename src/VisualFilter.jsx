@@ -3,7 +3,7 @@ import FilterChip from './FilterChip';
 import FilterSelect from './FilterSelect';
 import FilterValue from './FilterValue';
 import {uniqueId,setIdCounter} from './utils/uniqueid';
-import i18n from './utils/i18n';
+import {i18n,setLang} from './utils/i18n';
 import './styles.css';
 
 class VisualFilter extends React.Component {
@@ -111,6 +111,10 @@ class VisualFilter extends React.Component {
   componentWillMount() {
     document.addEventListener('mousedown', this.handleClick, false);
 
+    if (this.props.locale) {
+      setLang(this.props.locale);
+    }
+
     if (this.props.conditions) {
       setIdCounter(this.props.conditions.length + 1);
     }
@@ -187,7 +191,7 @@ class VisualFilter extends React.Component {
           </div>
         }
           <div onClick={this.addFilter} className="add-filter">
-            + add filter
+            {this.props.handlerTitle || '+ add filter'}
           </div>
       </div>
     );
@@ -196,10 +200,6 @@ class VisualFilter extends React.Component {
 
 function operators(ops) {
   let conditionOperators = [];
-
-  if (ops == 'all') {
-    ops = ['eq', 'ne', 'gt', 'lt', 'nn', 'in']
-  }
 
   ops.forEach((o) => {
     conditionOperators.push({name: o, label: i18n(o)});
