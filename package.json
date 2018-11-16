@@ -1,6 +1,6 @@
 {
   "name": "react-visual-filter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react-visual-filter provides visual filter by adding conditions.",
   "main": "dist/index.js",
   "scripts": {

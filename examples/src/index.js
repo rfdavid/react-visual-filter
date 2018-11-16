@@ -34,6 +34,7 @@ class App extends React.Component {
         dateFormat="Y-M-D"
         locale="en"
         handlerTitle="+ add filter"
+        keepAddHandler={true}
         onChange={this.handleChange} />
     )
   }

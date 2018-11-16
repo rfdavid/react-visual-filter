@@ -62,7 +62,6 @@ class VisualFilter extends React.Component {
 
   saveCondition() {
     let conditions = this.state.conditions;
-
     
     if (this.state.currentConditionId) {
       conditions = this.state.conditions.filter(el => el.id != this.state.currentConditionId)
@@ -121,7 +120,7 @@ class VisualFilter extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleclick, false);
+    document.removeEventListener('mousedown', this.handleClick, false);
   }
 
   handleClick(e) {
@@ -190,9 +189,11 @@ class VisualFilter extends React.Component {
             }
           </div>
         }
+        {(this.props.keepAddHandler || !this.state.showCondition) &&
           <div onClick={this.addFilter} className="add-filter">
             {this.props.handlerTitle || '+ add filter'}
           </div>
+        }
       </div>
     );
   }
