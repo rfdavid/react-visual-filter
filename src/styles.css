@@ -3,6 +3,10 @@
   align-items: flex-start;
 }
 
+.visual-filter {
+  position: absolute;
+}
+
 .visual-filter .add-filter {
   color: #00447a;
   font-weight: bold;
@@ -28,9 +32,6 @@
   cursor: pointer;
   float: left;
   border-radius: 4px;
-}
-
-.visual-filter .visual-conditions {
 }
 
 .visual-filter .visual-selector, 

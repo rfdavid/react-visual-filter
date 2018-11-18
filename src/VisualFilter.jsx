@@ -163,6 +163,7 @@ class VisualFilter extends React.Component {
             <FilterSelect
               key={'f-'+this.state.currentConditionId}
               options={fields}
+              className="fields"
               onSelect={this.handleFieldChange}
               selected={this.state.field}
             />
@@ -172,6 +173,7 @@ class VisualFilter extends React.Component {
                 options={operators(
                   getFieldByName(this.state.field).operators
                 )}
+                className="operators"
                 onSelect={this.handleOperatorChange}
                 selected={this.state.operator}
               />

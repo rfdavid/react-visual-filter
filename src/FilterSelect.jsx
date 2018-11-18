@@ -29,7 +29,10 @@ class FilterSelect extends React.Component {
 
   render() {
     return(
-      <div className={'visual-selector ' + (this.state.expanded ? 'expanded' : '') }>
+      <div className={'visual-selector ' + 
+        (this.state.expanded ? 'expanded' : '') +
+        ' ' + this.props.className
+      }>
         {this.state.selected &&
           <div onClick={this.handleSelectClick} className="visual-label">
             {this.props.options.find(o => o.name === this.state.selected).label}
