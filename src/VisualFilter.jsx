@@ -193,7 +193,7 @@ class VisualFilter extends React.Component {
         }
         {(this.props.keepAddHandler || !this.state.showCondition) &&
           <div onClick={this.addFilter} className="add-filter">
-            {this.props.handlerTitle || '+ add filter'}
+            {this.props.addFilterText || '+ add filter'}
           </div>
         }
       </div>

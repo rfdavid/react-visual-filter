@@ -33,7 +33,7 @@ class App extends React.Component {
         conditions={SAVED_CONDITIONS} 
         dateFormat="Y-M-D"
         locale="en"
-        handlerTitle="+ add filter"
+        addFilterText="+ add filter"
         keepAddHandler={true}
         onChange={this.handleChange} />
     )
