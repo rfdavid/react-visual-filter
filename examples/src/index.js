@@ -16,9 +16,9 @@ const FIELDS = [
 ];
 
 const SAVED_CONDITIONS = [
-  {id: 'cond-1', field: 'name', operator: 'eq', value: 'Elliot'},
-  {id: 'cond-2', field: 'preference', operator: 'eq', value: 'javascript'},
-  {id: 'cond-3', field: 'birth_date', operator: 'lt', value: '1984-11-25'}
+  {id: 'cond-1', field: 'name', type: 'text', operator: 'eq', value: 'Elliot'},
+  {id: 'cond-2', field: 'preference', type: 'list', operator: 'eq', value: 'javascript'},
+  {id: 'cond-3', field: 'birth_date', type: 'date', operator: 'lt', value: '1984-11-25'}
 ]
 
 class App extends React.Component {

@@ -35,13 +35,17 @@ class VisualFilter extends React.Component {
       field: null,
       operator: null,
       value: null,
+      type: null,
       showCondition: true
     })
   }
 
   handleFieldChange(field) {
+    var fieldType = this.props.fields.find(o => o.name === field).type;
+
     this.setState({
       field: field,
+      type: fieldType,
       operator: null
     })
   }
@@ -71,6 +75,7 @@ class VisualFilter extends React.Component {
       conditions: [...conditions, {
         id: this.state.currentConditionId || uniqueId('cond-'),
         field: this.state.field,
+        type: this.state.type,
         operator: this.state.operator,
         value: this.state.value
         }
@@ -78,6 +83,7 @@ class VisualFilter extends React.Component {
       field: null,
       operator: null,
       value: null,
+      type: null,
       currentConditionId: null,
       showCondition: false
     }, () => this.props.onChange(this.state.conditions))
@@ -90,6 +96,7 @@ class VisualFilter extends React.Component {
       currentConditionId: id,
       field: condition.field,
       operator: condition.operator,
+      type: condition.type,
       value: condition.value,
       showCondition: true
     }, () => this.props.onChange(this.state.conditions))
