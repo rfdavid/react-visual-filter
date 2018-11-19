@@ -65,7 +65,8 @@ class FilterValue extends React.Component {
               selected={this.state.date}
               onSelect={this.handleDateChange}
               dateFormat={this.props.dateFormat}
-              locale="en"
+              locale={this.props.locale}
+              disabledKeyboardNavigation={true}
               startOpen={true}
             />
               <input type="submit" value="ok" />
