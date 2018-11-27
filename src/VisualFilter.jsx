@@ -176,7 +176,7 @@ class VisualFilter extends React.Component {
             />
             {this.state.field &&
               <FilterSelect
-                key={'c-'+this.state.currentConditionId}
+                key={'c-'+this.state.field}
                 options={operators(
                   getFieldByName(this.state.field).operators
                 )}
