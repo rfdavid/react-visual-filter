@@ -1,6 +1,6 @@
 {
   "name": "react-visual-filter",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "react-visual-filter provides visual filter by adding conditions.",
   "main": "dist/index.js",
   "scripts": {
@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "moment": "^2.22.2",
-    "react-datepicker": "^1.8.0"
+    "react-datepicker": "^1.8.0",
+    "react-number-format": "^4.0.5"
   }
 }

@@ -56,7 +56,6 @@ class VisualFilter extends React.Component {
           operator: operator,
           value: null
       }, () => this.saveCondition())
-
     } else {
       this.setState({
         operator: operator
@@ -154,12 +153,16 @@ class VisualFilter extends React.Component {
           (c.id != this.state.currentConditionId) &&
             <FilterChip 
               label={getFieldByName(c.field).label} 
+              type={getFieldByName(c.field).type} 
               operator={c.operator}
               value={getFieldByName(c.field).type == 'list' ? 
                 getFieldByName(c.field).list.find(x => x.name === c.value).label 
                 : c.value}
               key={c.id}
               id={c.id}
+              numberPrefix={this.props.numberPrefix}
+              thousandSeparator={this.props.thousandSeparator}
+              decimalSeparator={this.props.decimalSeparator} 
               onRemove={this.removeCondition}
               onEdit={this.editCondition}
           />
@@ -191,6 +194,9 @@ class VisualFilter extends React.Component {
                 list={getFieldByName(this.state.field).list}
                 dateFormat={this.props.dateFormat || 'Y-M-D'}
                 locale={this.props.locale}
+                thousandSeparator={this.props.thousandSeparator}
+                decimalSeparator={this.props.decimalSeparator} 
+                numberPrefix={this.props.numberPrefix}
                 value={this.state.value || ''}
                 onSubmit={this.saveCondition}
                 onValueChange={this.handleValueChange}
