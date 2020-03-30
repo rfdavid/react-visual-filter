@@ -6,7 +6,7 @@ class FilterSelect extends React.Component {
 
     this.state = {
       expanded: (this.props.selected == null) ? true : false,
-      selected: this.props.selected,
+      selected: this.props.selected
     }
 
     this.handleSelectClick = this.handleSelectClick.bind(this);
@@ -35,7 +35,9 @@ class FilterSelect extends React.Component {
       }>
         {this.state.selected &&
           <div onClick={this.handleSelectClick} className="visual-label">
-            {this.props.options.find(o => o.name === this.state.selected).label}
+            {
+              this.props.options.find(o => o.name === this.state.selected).label
+            }
           </div>
         }
         {this.state.expanded &&

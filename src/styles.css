@@ -34,9 +34,16 @@
   border-radius: 4px;
 }
 
-.visual-filter .visual-selector, 
-.visual-filter .visual-value {
+.filter-search {
   margin-right: 15px;
+}
+
+.filter-search input {
+  margin: 10px 10px 10px;
+}
+
+.filter-search form {
+  margin-bottom: 0px;
 }
 
 .visual-filter .visual-value {
