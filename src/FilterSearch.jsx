@@ -1,11 +1,11 @@
 import React from 'react';
-import FilterSelect from './FilterSelect';
 
 class FilterSearch extends React.Component {
   constructor(props) {
     super(props)
 
     this.handleClick = this.handleClick.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleValueChange = this.handleValueChange.bind(this)
     this.state = {
@@ -63,6 +63,11 @@ class FilterSearch extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    const { filteredOptions, cursor } = this.state
+
+    if (filteredOptions[cursor]) {
+      this.handleOptionClick(filteredOptions[cursor].name)
+    }
   }
 
   handleValueChange(e) {
@@ -72,7 +77,8 @@ class FilterSearch extends React.Component {
 
     this.setState({
       filteredOptions: filteredOptions,
-      inputValue: e.target.value
+      inputValue: e.target.value,
+      cursor: -1
     })
   }
 
