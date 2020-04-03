@@ -38,7 +38,8 @@ class VisualFilter extends React.Component {
       operator: null,
       value: null,
       type: null,
-      showCondition: true
+      showCondition: true,
+      showForm: true
     })
   }
 
