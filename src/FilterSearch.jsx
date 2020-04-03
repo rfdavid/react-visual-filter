@@ -15,7 +15,7 @@ class FilterSearch extends React.Component {
       expanded: (this.props.selected == null) ? true : false,
       selected: this.props.selected,
       inputValue: '',
-      cursor: 0
+      cursor: -1
     }
   }
 
@@ -34,6 +34,20 @@ class FilterSearch extends React.Component {
       expanded: false,
       selected: name
     });
+  }
+
+  handleKeyDown(e) {
+    const { cursor } = this.state
+
+    if (e.keyCode === 38 && cursor > 0) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor - 1
+      }))
+    } else if (e.keyCode === 40 && cursor < this.state.filteredOptions.length - 1) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor + 1
+      }))
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -111,7 +125,3 @@ class FilterSearch extends React.Component {
 }
 
 export default FilterSearch;
-
-// https://stackoverflow.com/questions/42036865/react-how-to-navigate-through-list-by-arrow-keys
-
-// TODO: Keyboard navigation
