@@ -5,15 +5,17 @@ class FilterSearch extends React.Component {
   constructor(props) {
     super(props)
 
-    this.handleValueChange = this.handleValueChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.handleValueChange = this.handleValueChange.bind(this)
     this.state = {
       filterValue: null,
       filteredOptions: [],
       showForm: null,
       expanded: (this.props.selected == null) ? true : false,
       selected: this.props.selected,
-      inputValue: ''
+      inputValue: '',
+      cursor: 0
     }
   }
 
@@ -61,6 +63,8 @@ class FilterSearch extends React.Component {
   }
 
   render() {
+    const { cursor } = this.state
+
     return(
       <div className="filter-search" onClick={this.handleClick}>
         <div className={'visual-selector ' + 
@@ -74,6 +78,8 @@ class FilterSearch extends React.Component {
                 className={this.props.type}
                 value={this.state.inputValue} 
                 onChange={this.handleValueChange} 
+                onKeyDown={ this.handleKeyDown }
+                autoFocus
               />
             </form>
           }
@@ -88,10 +94,10 @@ class FilterSearch extends React.Component {
           {this.state.expanded &&
             <ul className="visual-options">
               {this.state.filteredOptions.map(
-                item => <li key={item.name} 
-                            onClick={() => this.handleOptionClick(item.name)}>
-                          {item.label}
-                        </li>
+                (item, i) => <li key={item.name}
+                                 className={cursor === i ? 'active' : null} 
+                                 onClick={() => this.handleOptionClick(item.name)}>
+                                 {item.label}</li>
               )}
               {this.state.filteredOptions && this.state.filteredOptions.length == 0 &&
                 `Nada encontrado contendo "${this.state.inputValue}".`
@@ -106,8 +112,6 @@ class FilterSearch extends React.Component {
 
 export default FilterSearch;
 
-// TODO: Keyboard navigation
+// https://stackoverflow.com/questions/42036865/react-how-to-navigate-through-list-by-arrow-keys
 
-// DONE
-// Add message when filteredOptions returns nothing
-// When editing add the number inside input
+// TODO: Keyboard navigation
