@@ -18,7 +18,7 @@ class VisualFilter extends React.Component {
       field: null,
       operator: null,
       value: null,
-      showForm: true
+      showForm: false
     };
 
     this.addFilter = this.addFilter.bind(this);
