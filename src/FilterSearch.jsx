@@ -29,10 +29,13 @@ class FilterSearch extends React.Component {
   }
 
   handleOptionClick(name) {
+    const labelName = this.state.filteredOptions.find(o => o.name === name).label
+
     this.props.onSelect(name);
     this.setState({
       expanded: false,
-      selected: name
+      selected: name,
+      inputValue: labelName
     });
   }
 
