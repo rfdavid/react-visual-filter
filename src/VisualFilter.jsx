@@ -179,7 +179,7 @@ class VisualFilter extends React.Component {
               options={fields}
               onSelect={this.handleFieldChange}
               selected={this.state.field}
-              showForm={this.state.showForm}
+              showForm={this.state.showForm && !this.state.field}
             />
             {this.state.field &&
               <FilterSelect
