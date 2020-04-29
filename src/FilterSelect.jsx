@@ -7,16 +7,40 @@ class FilterSelect extends React.Component {
     this.state = {
       expanded: (this.props.selected == null) ? true : false,
       selected: this.props.selected,
+      cursor: 0,
     }
 
-    this.handleSelectClick = this.handleSelectClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleOptionClick = this.handleOptionClick.bind(this);
+    this.handleSelectClick = this.handleSelectClick.bind(this);
+  }
+
+  handleKeyDown(e) {
+    const { cursor } = this.state
+
+    if (e.keyCode === 38 && cursor > 0) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor - 1
+      }))
+    } else if (e.keyCode === 40 && cursor < this.props.options.length - 1) {
+      this.setState( prevState => ({
+        cursor: prevState.cursor + 1
+      }))
+    } else if (e.keyCode === 13 ) {
+      this.handleOptionEnter(cursor)
+    }
   }
 
   handleSelectClick() {
     this.setState({
       expanded: !this.state.expanded
     });
+  }
+
+  handleOptionEnter(cursor) {
+    name = this.props.options[cursor].name
+    
+    this.handleOptionClick(name)
   }
 
   handleOptionClick(name) {
@@ -39,14 +63,18 @@ class FilterSelect extends React.Component {
           </div>
         }
         {this.state.expanded &&
-          <ul className="visual-options">
-            {this.props.options.map(
-              item => <li key={item.name} 
-                          onClick={() => this.handleOptionClick(item.name)}>
-                        {item.label}
-                      </li>
-            )}
-          </ul>
+          <div onKeyDown={this.handleKeyDown}
+               tabIndex="0">
+            <ul className="visual-options">
+              {this.props.options.map(
+                (item, i) => <li key={item.name}
+                                 className={this.state.cursor === i ? 'active' : null}  
+                                 onClick={() => this.handleOptionClick(item.name)}>
+                              {item.label}
+                            </li>
+              )}
+            </ul>
+          </div>
         }
       </div>
     );
