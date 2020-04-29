@@ -86,8 +86,6 @@ class FilterSearch extends React.Component {
   }
 
   render() {
-    const { cursor } = this.state
-
     return(
       <div className="filter-search" onClick={this.handleClick}>
         <div className={'visual-selector ' + 
@@ -118,7 +116,7 @@ class FilterSearch extends React.Component {
             <ul className="visual-options">
               {this.state.filteredOptions.map(
                 (item, i) => <li key={item.name}
-                                 className={cursor === i ? 'active' : null} 
+                                 className={this.state.cursor === i ? 'active' : null} 
                                  onClick={() => this.handleOptionClick(item.name)}>
                                  {item.label}</li>
               )}
