@@ -27,6 +27,7 @@ class FilterSelect extends React.Component {
         cursor: prevState.cursor + 1
       }))
     } else if (e.keyCode === 13 ) {
+      e.preventDefault()
       this.handleOptionEnter(cursor)
     }
   }
