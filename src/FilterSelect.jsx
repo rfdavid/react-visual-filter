@@ -18,6 +18,8 @@ class FilterSelect extends React.Component {
   handleKeyDown(e) {
     const { cursor } = this.state
 
+    e.preventDefault()
+
     if (e.keyCode === 38 && cursor > 0) {
       this.setState( prevState => ({
         cursor: prevState.cursor - 1
@@ -27,7 +29,6 @@ class FilterSelect extends React.Component {
         cursor: prevState.cursor + 1
       }))
     } else if (e.keyCode === 13 ) {
-      e.preventDefault()
       this.handleOptionEnter(cursor)
     }
   }
