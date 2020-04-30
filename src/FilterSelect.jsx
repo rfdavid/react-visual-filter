@@ -10,9 +10,17 @@ class FilterSelect extends React.Component {
       cursor: 0,
     }
 
+    this.divElement = React.createRef();
+
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleOptionClick = this.handleOptionClick.bind(this);
     this.handleSelectClick = this.handleSelectClick.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.state.expanded) {
+      this.divElement.focus()
+    }
   }
 
   handleKeyDown(e) {
@@ -66,7 +74,8 @@ class FilterSelect extends React.Component {
         }
         {this.state.expanded &&
           <div onKeyDown={this.handleKeyDown}
-               tabIndex="0">
+               tabIndex="0"
+               ref={node => this.divElement = node}>
             <ul className="visual-options">
               {this.props.options.map(
                 (item, i) => <li key={item.name}
