@@ -77,8 +77,8 @@
   cursor: pointer;
   font-weight: bold;
 }
-
-.active {
+ 
+.visual-filter .visual-selector .visual-options .active {
   background-color: #f8f9fa;
   color: #16181b;
 }
