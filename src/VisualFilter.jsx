@@ -2,6 +2,7 @@ import React from 'react';
 import FilterChip from './FilterChip';
 import FilterSelect from './FilterSelect';
 import FilterValue from './FilterValue';
+import FilterSearch from './FilterSearch';
 import {uniqueId,setIdCounter} from './utils/uniqueid';
 import {i18n,setLang} from './utils/i18n';
 import './styles.css';
@@ -16,7 +17,8 @@ class VisualFilter extends React.Component {
       conditions: this.props.conditions || [],
       field: null,
       operator: null,
-      value: null
+      value: null,
+      showForm: false
     };
 
     this.addFilter = this.addFilter.bind(this);
@@ -36,7 +38,8 @@ class VisualFilter extends React.Component {
       operator: null,
       value: null,
       type: null,
-      showCondition: true
+      showCondition: true,
+      showForm: true
     })
   }
 
@@ -46,7 +49,8 @@ class VisualFilter extends React.Component {
     this.setState({
       field: field,
       type: fieldType,
-      operator: null
+      operator: null,
+      showForm: false
     })
   }
 
@@ -133,7 +137,7 @@ class VisualFilter extends React.Component {
     if (this.node.contains(e.target)) {
       return;
     }
-
+    
     this.setState({
       field: null,
       operator: null,
@@ -170,12 +174,12 @@ class VisualFilter extends React.Component {
 
         {this.state.showCondition &&
           <div className="visual-conditions">
-            <FilterSelect
+            <FilterSearch
               key={'f-'+this.state.currentConditionId}
               options={fields}
-              className="fields"
               onSelect={this.handleFieldChange}
               selected={this.state.field}
+              showForm={this.state.showForm && !this.state.field}
             />
             {this.state.field &&
               <FilterSelect
