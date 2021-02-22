@@ -16,7 +16,8 @@ class FilterValue extends React.Component {
     this.handleListSelect = this.handleListSelect.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.state = {
-      date: moment()
+      startDate: moment(),
+      endDate: moment()
     }
   }
 
@@ -27,7 +28,8 @@ class FilterValue extends React.Component {
 
     if ((this.props.type == 'date') && (this.props.value)) {
       this.setState({
-        date: moment(this.props.value, this.props.dateFormat)
+        startDate: moment(this.props.value, this.props.dateFormat),
+         endDate: moment(this.props.value, this.props.dateFormat)
       });
     }
   }
@@ -50,8 +52,11 @@ class FilterValue extends React.Component {
     this.props.onValueChange(value, true);
   }
 
-  handleDateChange(date) {
-    this.setState({date});
+  handleDateChange(dates) {
+    const [start, end] = dates;
+    this.setSate({
+      startDate: start,
+      endDate:end})
     this.props.onValueChange(
       moment(date).format(this.props.dateFormat).toString()
     );
@@ -69,12 +74,16 @@ class FilterValue extends React.Component {
           <div>
             <form onSubmit={this.handleSubmit}>
             <DatePicker
-              selected={this.state.date}
-              onSelect={this.handleDateChange}
+              selected={this.state.startDate}
+              onChange={this.handleDateChange}
               dateFormat={this.props.dateFormat}
               locale={this.props.locale}
               disabledKeyboardNavigation={true}
               startOpen={true}
+              selectsRange={true}
+              inline={true}
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
             />
               <input type="submit" value="ok" />
             </form>
